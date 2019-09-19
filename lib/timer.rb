@@ -1,5 +1,6 @@
 require 'benchmark'
 require 'csv'
+require_relative './my_reverse'
 
 def algo_timer(steps)
   results = {}
@@ -13,7 +14,7 @@ end
 
 def timefunction(array)
   start_time = Time.now
-  array.dup.sort
+  my_reverse(array.dup)
   start_time - Time.now
 end
 
