@@ -1,6 +1,7 @@
 require 'benchmark'
 require 'csv'
 require_relative './my_reverse'
+require_relative './my_shuffle'
 
 def algo_timer(steps)
   results = {}
@@ -15,7 +16,7 @@ end
 def timefunction(array)
   start_time = Time.now
   my_reverse(array.dup)
-  start_time - Time.now
+  Time.now - start_time
 end
 
 def save_to_csv(results, filename = 'algo-timer-results.csv')

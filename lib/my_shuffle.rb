@@ -1,8 +1,8 @@
 def my_shuffle(array)
   y = []
-  results = [0]*array.length
+  results = [0] * array.length
   until y.length == array.length
-    y << (rand(1..array.length) - 1)
+    y << rand(0..array.length - 1)
     y.uniq!
   end
   counter = 0
