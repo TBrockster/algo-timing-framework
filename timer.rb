@@ -6,15 +6,19 @@ def timer(steps)
   (1..steps).each do |step|
     n = step * 5_000
     array = * (1..n).map { rand }
-    algo_time = Benchmark.realtime do
-      array.dup.last
-    end
-    results[n] = algo_time
+    results[n] = timefunction(array)
   end
-  save_students(results)
+  save_to_csv(results)
 end
 
-def save_students(filename = 'algo-timer-results.csv', results)
+def timefunction(array)
+  start_time = Time.now
+  array.dup.sort
+  end_time = Time.now
+  start_time - end_time
+end
+
+def save_to_csv(results, filename = 'algo-timer-results.csv')
   CSV.open(filename, 'w') do |csv|
     results.each do |key, value|
       csv << [key, value]
