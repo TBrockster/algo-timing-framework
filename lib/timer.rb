@@ -1,12 +1,12 @@
 require 'benchmark'
 require 'csv'
 
-def timer(steps)
+def algo_timer(steps)
   results = {}
   (1..steps).each do |step|
-    n = step * 5_000
-    array = * (1..n).map { rand }
-    results[n] = timefunction(array)
+    array_size = step * 5_000
+    test_array = * (1..array_size).map { rand }
+    results[array_size] = timefunction(test_array)
   end
   save_to_csv(results)
 end
@@ -14,8 +14,7 @@ end
 def timefunction(array)
   start_time = Time.now
   array.dup.sort
-  end_time = Time.now
-  start_time - end_time
+  start_time - Time.now
 end
 
 def save_to_csv(results, filename = 'algo-timer-results.csv')
@@ -27,4 +26,4 @@ def save_to_csv(results, filename = 'algo-timer-results.csv')
   puts 'File Saved'
 end
 
-timer(20)
+algo_timer(20)
