@@ -14,8 +14,9 @@ def algo_timer(steps)
 end
 
 def timefunction(array)
+  array_dup = array.dup
   start_time = Time.now
-  my_reverse(array.dup)
+  my_reverse(array_dup)
   Time.now - start_time
 end
 
