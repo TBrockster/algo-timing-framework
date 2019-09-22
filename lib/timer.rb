@@ -14,10 +14,22 @@ def algo_timer(steps)
 end
 
 def timefunction(array)
+  warm_up(array)
   array_dup = array.dup
   start_time = Time.now
-  my_reverse(array_dup)
+  test_algorithm(array_dup)
   Time.now - start_time
+end
+
+def warm_up(array)
+  50.times do
+    array_dup = array.dup
+    test_algorithm(array_dup)
+  end
+end
+
+def test_algorithm(array)
+  my_reverse(array)
 end
 
 def save_to_csv(results, filename = 'algo-timer-results.csv')
