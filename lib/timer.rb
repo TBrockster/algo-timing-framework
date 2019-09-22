@@ -1,10 +1,13 @@
 Dir[File.join(__dir__, 'algorithms', '*.rb')].each { |file| require file }
 require 'csv'
 
+STEP_SIZE = 5_000
+NUMBER_OF_WARM_UPS = 10
+
 def algo_timer(steps)
   results = {}
   (1..steps).each do |step|
-    array_size = step * 5_000
+    array_size = step * STEP_SIZE
     test_array = * (1..array_size).map { rand }
     results[array_size] = time_algorithm(test_array)
   end
@@ -20,7 +23,7 @@ def time_algorithm(array)
 end
 
 def warm_up(array)
-  50.times do
+  NUMBER_OF_WARM_UPS.times do
     array_dup = array.dup
     run_algorithm(array_dup)
   end
