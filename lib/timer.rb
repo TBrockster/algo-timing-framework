@@ -8,27 +8,27 @@ def algo_timer(steps)
   (1..steps).each do |step|
     array_size = step * 5_000
     test_array = * (1..array_size).map { rand }
-    results[array_size] = timefunction(test_array)
+    results[array_size] = time_algorithm(test_array)
   end
   save_to_csv(results)
 end
 
-def timefunction(array)
+def time_algorithm(array)
   warm_up(array)
   array_dup = array.dup
   start_time = Time.now
-  test_algorithm(array_dup)
+  run_algorithm(array_dup)
   Time.now - start_time
 end
 
 def warm_up(array)
   50.times do
     array_dup = array.dup
-    test_algorithm(array_dup)
+    run_algorithm(array_dup)
   end
 end
 
-def test_algorithm(array)
+def run_algorithm(array)
   my_reverse(array)
 end
 
