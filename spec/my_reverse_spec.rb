@@ -1,4 +1,4 @@
-require 'my_reverse'
+require_relative '../lib/algorithms/my_reverse'
 
 describe 'my_reverse' do
   it 'reverses a simple array' do

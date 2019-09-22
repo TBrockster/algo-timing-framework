@@ -1,7 +1,5 @@
-require 'benchmark'
+Dir[File.join(__dir__, 'algorithms', '*.rb')].each { |file| require file }
 require 'csv'
-require_relative './my_reverse'
-require_relative './my_shuffle'
 
 def algo_timer(steps)
   results = {}
