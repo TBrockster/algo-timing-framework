@@ -18,3 +18,7 @@ This Framework is intended to be able to time different algorithms and compare t
  - Smooth out curves
    - Use average of many trials (20..100)
    - Discard top and bottom 5% from averages
+   
+## Graphs
+
+![Alt text](/screenshots/reverse_graph.png?raw=true "my_reverse vs .reverse")
