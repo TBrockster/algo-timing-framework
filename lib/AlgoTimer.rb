@@ -5,11 +5,11 @@ class AlgoTimer
   STEPS = 20
   STEP_SIZE = 5_000
   NUMBER_OF_WARM_UPS = 10
-  NUMBER_OF_RUNS = 10
+  NUMBER_OF_RUNS = 100
 
   def run
     @results = {}
-    # warm_up
+    warm_up
     time_algorithm_runner
     average_results
     save_results
@@ -20,11 +20,9 @@ class AlgoTimer
   def warm_up
     puts '---Warm ups---'
     (1..NUMBER_OF_WARM_UPS).each do |warm_up|
-      (1..STEPS).each do |step|
-        puts "Warm up: #{warm_up} Step: #{step}"
-        generate_array(step)
-        run_algorithm
-      end
+      puts "Warm up: #{warm_up}"
+      generate_array(1)
+      run_algorithm
     end
     puts '---Warm ups complete---'
   end
