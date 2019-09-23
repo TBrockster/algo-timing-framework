@@ -30,7 +30,7 @@ def warm_up(array)
 end
 
 def run_algorithm(array)
-  my_reverse(array)
+  my_shuffle(array)
 end
 
 def save_to_csv(results, filename = 'algo-timer-results.csv')
