@@ -3,10 +3,10 @@ require 'csv'
 
 # this is a WIP algorithm timing framework
 class AlgoTimer
-  STEPS = 20
+  STEPS = 5
   STEP_SIZE = 5_000
   NUMBER_OF_WARM_UPS = 10
-  NUMBER_OF_RUNS = 20
+  NUMBER_OF_RUNS = 5
 
   def initialize(steps: STEPS,
                  step_size: STEP_SIZE,
@@ -70,15 +70,15 @@ class AlgoTimer
   end
 
   def record_result(step, run_time)
-    if @results[step * @step_size] == true
-      @results[step * @step_size] << run_time
-    else
+    if @results[step * @step_size].nil?
       @results[step * @step_size] = [run_time]
+    else
+      @results[step * @step_size] << run_time
     end
   end
 
   def average_results
-    @results.each do |key, _value|
+    @results.each do |key, value|
       @results[key] = (@results[key].sum / @results[key].length)
     end
   end
