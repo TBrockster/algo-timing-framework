@@ -24,3 +24,4 @@ For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spr
 ![Alt text](/screenshots/reverse_graph.png?raw=true "my_reverse vs .reverse")
 
 ![Alt text](/screenshots/shuffle_graph.png?raw=true "my_shuffle vs .shuffle")
+</br><sub>N.B. .shuffle only appears constant due to the scale distortion caused by my much slower algorithm. It appears as a linear line, with a slight gradient when plotted alone.</sub>
