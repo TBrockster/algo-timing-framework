@@ -7,3 +7,11 @@ def my_reverse(array)
   end
   reversed_array
 end
+
+x = 99
+
+y = (x / 20).round
+z = x / 20
+
+p y
+p z

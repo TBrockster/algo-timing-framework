@@ -20,7 +20,7 @@ For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spr
 ![Alt text](/screenshots/shuffle_graph.png?raw=true "my_shuffle vs .shuffle")
 </br><sub>N.B. .shuffle only appears constant due to the scale distortion caused by my much slower algorithm. It appears as a linear line, with a slight gradient when plotted alone.</sub>
 
+![Alt text](/screenshots/dup_finder_graph.png?raw=true "my_dup_finder")
+
 ### To do
  - Write more algorithms to test - https://github.com/makersacademy/course/blob/master/algorithmic_complexity/exercises.md
- - Smooth out curves
-   - Discard top and bottom 5% from averages

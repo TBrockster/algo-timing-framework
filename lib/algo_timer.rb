@@ -3,10 +3,10 @@ require 'csv'
 
 # this is a WIP algorithm timing framework
 class AlgoTimer
-  STEPS = 5
+  STEPS = 20
   STEP_SIZE = 5_000
   NUMBER_OF_WARM_UPS = 10
-  NUMBER_OF_RUNS = 5
+  NUMBER_OF_RUNS = 100
 
   def initialize(steps: STEPS,
                  step_size: STEP_SIZE,
@@ -22,8 +22,8 @@ class AlgoTimer
     begin_time = Time.now
     @results = {}
     warm_up
-    time_algorithm_runner
-    average_results
+    time_algorithm
+    smooth_results
     save_results
     end_time = Time.now - begin_time
     puts "Total time taken: #{end_time}s"
@@ -50,20 +50,20 @@ class AlgoTimer
     my_dup_finder(@test_array)
   end
 
-  def time_algorithm_runner
+  def time_algorithm
     puts '---Timing algorithm---'
     (1..@number_of_runs).each do |run|
       (1..@steps).each do |step|
         puts "Run: #{run}, Step: #{step}"
         generate_array(step)
-        run_time = time_algorithm
+        run_time = algorithm_duration
         record_result(step, run_time)
       end
     end
     puts '---Timing algorithm complete---'
   end
 
-  def time_algorithm
+  def algorithm_duration
     start_time = Time.now
     run_algorithm
     Time.now - start_time
@@ -77,9 +77,23 @@ class AlgoTimer
     end
   end
 
+  def smooth_results
+    remove_outliers
+    average_results
+  end
+
+  def remove_outliers
+    @results.each do |key, value|
+      (1..@number_of_runs / 5).each do
+        @results[key].delete(value.max)
+        @results[key].delete(value.min)
+      end
+    end
+  end
+
   def average_results
     @results.each do |key, value|
-      @results[key] = (@results[key].sum / @results[key].length)
+      @results[key] = (value.sum / value.length)
     end
   end
 
