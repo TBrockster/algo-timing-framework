@@ -9,7 +9,7 @@ This Framework is intended to be able to time different algorithms and compare t
  - Change the algorithm defined with the run_algorithm(array) method (line 33 of timer.rb) to the algorithm you wish to time.
  - Run the timer.rb file (ruby ./lib/timer.rb)
  - Copy results from the algo-timer-results.csv
- - Paste into a copy of the following spreadsheet - https://docs.google.com/spreadsheets/d/1fbEJjvQzfriMHR56odUc8tOGI-K08viGZpiBTVPj7cI/edit?usp=sharing
+ - Paste into a copy of this [spreadsheet](https://docs.google.com/spreadsheets/d/1fbEJjvQzfriMHR56odUc8tOGI-K08viGZpiBTVPj7cI/edit?usp=sharing).
 
 ## Graphs
 
