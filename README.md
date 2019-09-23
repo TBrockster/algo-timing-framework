@@ -11,12 +11,6 @@ This Framework is intended to be able to time different algorithms and compare t
  - Copy results from the algo-timer-results.csv
  - Paste into a copy of the following spreadsheet - https://docs.google.com/spreadsheets/d/1fbEJjvQzfriMHR56odUc8tOGI-K08viGZpiBTVPj7cI/edit?usp=sharing
 
-### To do
- - Write more algorithms to test - https://github.com/makersacademy/course/blob/master/algorithmic_complexity/exercises.md
- - Smooth out curves
-   - Use average of many trials (20..100)
-   - Discard top and bottom 5% from averages
-   
 ## Graphs
 
 For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spreadsheets/d/1fbEJjvQzfriMHR56odUc8tOGI-K08viGZpiBTVPj7cI/edit?usp=sharing).
@@ -25,3 +19,9 @@ For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spr
 
 ![Alt text](/screenshots/shuffle_graph.png?raw=true "my_shuffle vs .shuffle")
 </br><sub>N.B. .shuffle only appears constant due to the scale distortion caused by my much slower algorithm. It appears as a linear line, with a slight gradient when plotted alone.</sub>
+
+### To do
+ - Write more algorithms to test - https://github.com/makersacademy/course/blob/master/algorithmic_complexity/exercises.md
+ - Smooth out curves
+   - Use average of many trials (20..100)
+   - Discard top and bottom 5% from averages
