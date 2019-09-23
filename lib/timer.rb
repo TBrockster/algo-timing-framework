@@ -3,13 +3,19 @@ require 'csv'
 
 STEP_SIZE = 5_000
 NUMBER_OF_WARM_UPS = 10
+NUMBER_OF_RUNS = 20
 
 def algo_timer(steps)
-  results = {}
-  (1..steps).each do |step|
-    array_size = step * STEP_SIZE
-    test_array = * (1..array_size).map { rand }
-    results[array_size] = time_algorithm(test_array)
+  results = Hash.new(0)
+  NUMBER_OF_RUNS.times do
+    (1..steps).each do |step|
+      array_size = step * STEP_SIZE
+      test_array = * (1..array_size).map { rand }
+      results[array_size] += time_algorithm(test_array)
+    end
+  end
+  results.each do |key, _value|
+    results[key] /= NUMBER_OF_RUNS
   end
   save_to_csv(results)
 end
@@ -30,7 +36,7 @@ def warm_up(array)
 end
 
 def run_algorithm(array)
-  array.shuffle
+  my_dup_finder(array)
 end
 
 def save_to_csv(results, filename = 'algo-timer-results.csv')
