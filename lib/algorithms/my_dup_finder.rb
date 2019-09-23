@@ -3,10 +3,7 @@ def my_dup_finder(array)
   duplicates = []
   array.each do |word|
     count[word] += 1
-    if count[word] == 2
-      p count[word]
-      duplicates << word
-    end
+    duplicates << word if count[word] == 2
   end
   duplicates
 end
