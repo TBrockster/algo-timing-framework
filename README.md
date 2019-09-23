@@ -22,3 +22,5 @@ This Framework is intended to be able to time different algorithms and compare t
 For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spreadsheets/d/1fbEJjvQzfriMHR56odUc8tOGI-K08viGZpiBTVPj7cI/edit?usp=sharing).
 
 ![Alt text](/screenshots/reverse_graph.png?raw=true "my_reverse vs .reverse")
+
+![Alt text](/screenshots/shuffle_graph.png?raw=true "my_shuffle vs .shuffle")
