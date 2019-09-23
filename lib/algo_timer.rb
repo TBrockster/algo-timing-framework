@@ -1,25 +1,39 @@
 Dir[File.join(__dir__, 'algorithms', '*.rb')].each { |file| require file }
 require 'csv'
 
+# this is a WIP algorithm timing framework
 class AlgoTimer
   STEPS = 20
   STEP_SIZE = 5_000
   NUMBER_OF_WARM_UPS = 10
-  NUMBER_OF_RUNS = 100
+  NUMBER_OF_RUNS = 20
+
+  def initialize(steps: STEPS,
+                 step_size: STEP_SIZE,
+                 number_of_warm_ups: NUMBER_OF_WARM_UPS,
+                 number_of_runs: NUMBER_OF_RUNS)
+    @steps = steps
+    @step_size = step_size
+    @number_of_warm_ups = number_of_warm_ups
+    @number_of_runs = number_of_runs
+  end
 
   def run
+    begin_time = Time.now
     @results = {}
     warm_up
     time_algorithm_runner
     average_results
     save_results
+    end_time = Time.now - begin_time
+    puts "Total time taken: #{end_time}s"
   end
 
   private
 
   def warm_up
     puts '---Warm ups---'
-    (1..NUMBER_OF_WARM_UPS).each do |warm_up|
+    (1..@number_of_warm_ups).each do |warm_up|
       puts "Warm up: #{warm_up}"
       generate_array(1)
       run_algorithm
@@ -28,7 +42,7 @@ class AlgoTimer
   end
 
   def generate_array(step)
-    array_size = step * STEP_SIZE
+    array_size = step * @step_size
     @test_array = * (1..array_size).map { rand }
   end
 
@@ -38,8 +52,8 @@ class AlgoTimer
 
   def time_algorithm_runner
     puts '---Timing algorithm---'
-    (1..NUMBER_OF_RUNS).each do |run|
-      (1..STEPS).each do |step|
+    (1..@number_of_runs).each do |run|
+      (1..@steps).each do |step|
         puts "Run: #{run}, Step: #{step}"
         generate_array(step)
         run_time = time_algorithm
@@ -56,10 +70,10 @@ class AlgoTimer
   end
 
   def record_result(step, run_time)
-    if @results[step * STEP_SIZE] == true
-      @results[step * STEP_SIZE] << run_time
+    if @results[step * @step_size] == true
+      @results[step * @step_size] << run_time
     else
-      @results[step * STEP_SIZE] = [run_time]
+      @results[step * @step_size] = [run_time]
     end
   end
 
