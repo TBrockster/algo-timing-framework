@@ -25,3 +25,4 @@ For all graphs, and raw data, see this [spreadsheet](https://docs.google.com/spr
 ### To do
  - Write more algorithms to test - https://github.com/makersacademy/course/blob/master/algorithmic_complexity/exercises.md
  - Use SRand to test shuffle algorithm
+ - Change my_shuffle to constant time, using .pop
